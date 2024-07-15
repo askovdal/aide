@@ -456,7 +456,8 @@ where
             router
                 .paths
                 .into_iter()
-                .map(|(route, path_item)| (path.to_string() + &route, path_item)),
+                .map(|(route, path_item)| (path.to_string() + &route, path_item))
+                .map(|(route, path_item)| (route.trim_end_matches('/').to_string(), path_item)),
         );
 
         self
